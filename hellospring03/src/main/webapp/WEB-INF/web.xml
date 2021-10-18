@@ -5,6 +5,31 @@
 	version="2.5">
 	<display-name>hellospring03</display-name>
 	
+	<context-param>
+	     <param-name> contextConfigLocation </param-name>
+	     <param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<!-- ContextLoad Listener -->
+	<listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener </listener-class>
+	</listener>
+
+	<!-- Encoding Filter -->	
+	<filter>
+	   <filter-name>encodingFilter</filter-name>
+	   <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	   <init-param>
+	      <param-name>encoding</param-name>
+	      <param-value>UTF-8</param-value>
+	   </init-param>
+	</filter>  
+	   
+	<filter-mapping>
+	   <filter-name>encodingFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<!-- DisPatch Servlet (분기 서블릿) -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
