@@ -13,6 +13,8 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<mvc:annotation-driven/>
 	<!-- 멀티파트 리졸버 -->
 	<bean id="multipartResolver" 
 	       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -26,7 +28,11 @@
 	     <property name="defaultEncoding" value="utf-8" />
 	</bean>
 	
+	<!-- MVC url-resource mapping  -->
+	<mvc:resources location="file:/users/jinyoung/upload-images/" mapping="/images/**"></mvc:resources>
+	
 	<context:annotation-config />
-	<context:component-scan base-package="com.douzone.fileupload.controller" />
+	<context:component-scan base-package="com.douzone.fileupload.controller, com.douzone.fileupload.service" />
+	
 	
 </beans>
